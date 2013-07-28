@@ -1,16 +1,14 @@
 
-== The way
+=== The way ===
 
 update gemfile ,add gem s
 ===========================
-
 		gem "json2-rails"
 		gem "spine-rails"
 		gem 'eco'
 
 scaffold
 ===========================
-
 		rails new spine.rails
 		cd spine.rails
 		rake db:create
@@ -21,7 +19,6 @@ scaffold
 
 modify the json api if rails > 4
 ============================
-
 		cd app/view/posts/
 		vi *.jbuilder
 			json.extract! post, :id, :title, :content
@@ -34,6 +31,21 @@ add stack controller css
 			  display: none;
 			}
 
-start server
+steup
+=============================
+		vi app/assets/javascripts/app/index.js.coffee
+
+		    @append(@posts = new App.Posts)
+
+		replace app/views/posts/index.html.erb to 
+
+			<div id="app"></div>
+			<script type="text/javascript">
+			  $(function() {
+			    new App({el: $("#app")})
+			  })
+			</script>
+
+start
 =============================
 		rails s
